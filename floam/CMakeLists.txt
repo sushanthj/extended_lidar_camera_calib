@@ -4,6 +4,12 @@ project(floam)
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_FLAGS "-std=c++11")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
+# Set target C++ standard and required compiler features
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Set the PCL_DIR variable to the folder containing PCLConfig.cmake
+set(PCL_DIR "/usr/lib/x86_64-linux-gnu/cmake/pcl/") 
 
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
@@ -48,7 +54,7 @@ link_directories(
 
 catkin_package(
   CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs
-  DEPENDS EIGEN3 PCL Ceres 
+  DEPENDS EIGEN3 PCL Ceres
   INCLUDE_DIRS include
 )
 

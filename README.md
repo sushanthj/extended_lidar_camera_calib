@@ -14,13 +14,17 @@ ceres-slover == 1.14.0
 pcl==1.8.0
 ```
 
-## Build
-```
-cd ~/catkin_ws/src
-git clone https://github.com/AFEICHINA/extended_lidar_camera_calib.git
-cd ..
-catkin_make
-source ~/catkin_ws/devel/setup.bash
+## Setup
+1. Create two folders, one called 'input_bags' and the other called 'catkin_ws' (RUN mkdir catkin_ws/src)
+2. Inside the src folder of catkin_ws do ```git clone https://github.com/sushanthj/extended_lidar_camera_calib.git```
+
+Now, move the run_docker.sh and setup.sh scripts from within the ```extened_lidar_calib``` folder
+and modify it's contents with the correct paths
+
+## Run
+1. Start the docker container by running run_docker.sh
+2. Run the setup.sh script to get all dependencies setup
+3. Go to the catkin_ws and run catkin_make
 ```
 
 ## Run
