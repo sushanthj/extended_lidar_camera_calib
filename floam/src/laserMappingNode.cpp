@@ -95,7 +95,7 @@ void laser_mapping(){
             map_pub.publish(PointsMsg); 
             
             // save full pointcloud
-            if (pcd_save_en)
+            if (true)
             {
                 int size = pointcloud_in->points.size();
                 pcl::PointCloud<pcl::PointXYZI>::Ptr transformed_pc(new pcl::PointCloud<pcl::PointXYZI>(size, 1));

@@ -2,22 +2,22 @@
 <launch>
 
     
-    <node pkg="rosbag" type="play" name="rosbag_play" args="--clock -r 0.5 /home/zhkj/dataset/kitti_2011_10_03_drive_0027_synced.bag"/> 
+    <node pkg="rosbag" type="play" name="rosbag_play" args="--clock -r 0.5 /home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/dataset/sliced.bag"/> 
     
-    <!-- For Velodyne VLP-16 
+    <!-- For Velodyne VLP-16 -->
     <param name="scan_line" value="16" />
-    -->
 
     <!-- For Velodyne HDL-32 
     <param name="scan_line" value="32" />
     -->
 
     <!-- For Velodyne HDL-64 -->
-    <param name="scan_line" value="64" />
+    <!-- <param name="scan_line" value="64" /> -->
     
     <!--- Sim Time -->
     <param name="/use_sim_time" value="true" />
     <param name="scan_period" value="0.1" />
+    <param name="map_save_ROOT" type="string" value="$(find floam)" />
 
     <param name="vertical_angle" type="double" value="2.0" />
     <param name="max_dis" type="double" value="90.0" />
