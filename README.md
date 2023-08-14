@@ -29,9 +29,7 @@ and modify it's contents with the correct paths
 1. Start the docker container by running run_docker.sh
 2. Run the setup.sh script to get all dependencies setup
 3. Go to the catkin_ws and run catkin_make
-```
 
-## Run
 step1: doing slam to accumulate dense pointcloud. 
 ```
 roslaunch floam floam_XXX.launch
