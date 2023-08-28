@@ -167,8 +167,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr &msg,
   // Marker 3 -> aRuCo ID: 3
 
   std::vector<std::vector<cv::Point3f>> boardCorners;
-std:
-  vector<cv::Point3f> boardCircleCenters;
+  std:vector<cv::Point3f> boardCircleCenters;
   float width = delta_width_qr_center_;
   float height = delta_height_qr_center_;
   float circle_width = delta_width_circles_ / 2.;
@@ -198,7 +197,9 @@ std:
     }
   }
 
-  std::vector<int> boardIds{1, 2, 4, 3};  // IDs order as explained above
+  // std::vector<int> boardIds{1, 2, 4, 3};  // IDs order as explained above
+  //! Temporary Fix
+  std::vector<int> boardIds{3,4,2,1};
   cv::Ptr<cv::aruco::Board> board =
       cv::aruco::Board::create(boardCorners, dictionary, boardIds);
 
@@ -236,6 +237,10 @@ std:
       double x = tvecs[i][0];
       double y = tvecs[i][1];
       double z = tvecs[i][2];
+
+      std::cout << "Corner " << i << " X is " << x << std::endl;
+      std::cout << "Corner " << i << " Y is " << y << std::endl;
+      std::cout << "Corner " << i << " Z is " << z << std::endl;
 
       cv::Point3f pt_cv(x, y, z);
       cv::Point2f uv;
@@ -553,6 +558,8 @@ int main(int argc, char **argv) {
                     "/stereo_camera/left/image_rect_color");
   nh_.param<string>("cinfo_topic", cinfo_topic,
                     "/stereo_camera/left/camera_info");
+  std::cout << "image topic is " << image_topic << std::endl;
+  std::cout << "Cam info topic is " << cinfo_topic << std::endl;
 
   message_filters::Subscriber<sensor_msgs::Image> image_sub(nh_, image_topic,
                                                             1);

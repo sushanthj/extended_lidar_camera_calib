@@ -75,6 +75,7 @@ add_executable(mono_qr_pattern src/mono_qr_pattern.cpp)
 add_executable(velo2cam_calibration src/velo2cam_calibration.cpp)
 add_executable(v2c_plane_segmentation src/plane.cpp)
 add_executable(v2c_disp_masker src/disp_masker.cpp)
+add_executable(aruco_trial src/aruco_trial.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
@@ -123,6 +124,10 @@ target_link_libraries(v2c_plane_segmentation
   ${catkin_LIBRARIES}
 )
 target_link_libraries(v2c_disp_masker
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+)
+target_link_libraries(aruco_trial
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
 )

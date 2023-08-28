@@ -7,7 +7,7 @@
     <arg name="sensor_id" default="0" />
 
     <!-- Marker size (side) in meters -->
-    <arg name="marker_size" value="0.2"/>
+    <arg name="marker_size" value="0.1"/>
 
     <node pkg="velo2cam_calibration" type="mono_qr_pattern" name="mono_pattern_$(arg sensor_id)" output="$(arg stdout)">
         <param name="image_topic" value="$(arg camera_name)/$(arg image_topic)" />

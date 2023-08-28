@@ -27,14 +27,14 @@
 #define velo2cam_utils_H
 
 #define PCL_NO_PRECOMPILE
-#define DEBUG 0
+#define DEBUG 1
 
 #include <pcl/search/kdtree.h>
 #include <pcl/segmentation/extract_clusters.h>
 
 #define TARGET_NUM_CIRCLES 4
-#define TARGET_RADIUS 0.12
-#define GEOMETRY_TOLERANCE 0.06
+#define TARGET_RADIUS 0.06
+#define GEOMETRY_TOLERANCE 0.3
 
 using namespace std;
 
@@ -304,6 +304,7 @@ class Square {
     for (int i = 0; i < _candidates.size(); ++i) {
       candidates_cloud->push_back(_candidates[i]);
       float d = distance(_center, _candidates[i]);
+      // NOTE: target_diagonal is calculated as: _target_diagonal = sqrt(pow(width, 2) + pow(height, 2));
       if (fabs(d - _target_diagonal / 2.) / (_target_diagonal / 2.) >
           GEOMETRY_TOLERANCE) {
         return false;

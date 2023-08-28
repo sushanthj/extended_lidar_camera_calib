@@ -1,17 +1,26 @@
 %YAML:1.0
 
 # Topic name in rosbag
-PointCloudTopic: "/livox/lidar"
-ImageTopic: "/camera/color/image_raw"
+PointCloudTopic: "/velodyne_points"
+ImageTopic: "/camera/image_color"
 
+# approximate extrinsics from CAD or Manual
 ExtrinsicMat: !!opencv-matrix
   rows: 4
   cols: 4
   dt: d
-  data: [0.0,   -1.0,   0.0,    0.0,
-         0.0,  0.0,  -1.0,    0.0,
-         1.0,   0.0,    0.0,    0.0,
-         0.0,   0.0,    0.0,    1.0]
+  # Assuming rotation about y-axis and height height difference betwen lidar and cam along x axis
+  # and moving from L -> C
+  data: [ 0.898,    0.0,    0.438,    0.462,
+          0.0,      1.0,    0.0,      0.0,
+         -0.438,    0.0,    0.898,   -0.025,
+          0.0,      0.0,    0.0,      1.0]
+  # # Assuming rotation about y-axis and height height difference betwen lidar and cam along z axis
+  # # and moving from L -> C
+  # data: [ 0.898,    0.0,    0.438,    0.025,
+  #         0.0,      1.0,    0.0,      0.0,
+  #        -0.438,    0.0,    0.898,   -0.462,
+  #         0.0,      0.0,    0.0,      1.0]
 # Params for Canny Edge Extraction
 
 Canny.gray_threshold: 10

@@ -1,0 +1,21 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  delta_height_qr_center: 0.175
+  delta_width_qr_center: 0.275
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      delta_height_qr_center: 0.175
+      delta_width_qr_center: 0.275
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      id: 0
+      marker_size: 0.1
+      name: Default
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      state: true
+      type: ''
+    state: []
+  marker_size: 0.1
+state: []

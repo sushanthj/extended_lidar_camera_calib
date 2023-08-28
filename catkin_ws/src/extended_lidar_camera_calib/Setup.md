@@ -8,6 +8,15 @@
   ![](/extended_lidar_camera_calib/pics/lidar_filters_1.png)
 - This will then be filtered to select only the target Lidar points and the background
   ![](/extended_lidar_camera_calib/pics/lidar_filters_2.png)
+- Markers are ordered as shown below (Aruco 6x6x250 markers) 4 markers * 4 corners
+  ```
+  // Markers order:
+  // 1-------2
+  // |       |
+  // |   C   |
+  // |       |
+  // 4-------3
+  ```
 
 **Hence, it's better to avoid clutter around the target to allow for simple filtering**
 
@@ -118,3 +127,19 @@ The cloud can be filtered through the parameters **filter_limit_min** and
 and **pass_through_z_velo_** nodes.
 
 At the end of the calibration, the program will ask the user if a new pattern pose is needed. It is recommended to repeat the procedure at least three times, each with a different position and orientation of the calibration pattern. Each new iteration starts with the same warm-up stage described above, where the passthrough filters should be properly adjusted to the new pattern location.
+
+## Commands to run
+
+```bash
+roscore
+
+roslaunch velo2cam_calibration mono_pattern.launch camera_name:=/camera image_topic:=image_raw frame_name:=camera
+
+roslaunch velo2cam_calibration lidar_pattern.launch cloud_topic:=/vlp16_points
+
+roslaunch velo2cam_calibration registration.launch sensor1_type:=mono sensor2_type:=lidar
+
+rosrun rqt_reconfigure rqt_reconfigure
+
+rviz
+```
