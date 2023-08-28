@@ -14,7 +14,7 @@ then
       --volume="${PWD}:/share" \
       -v /home/sush/klab2/camera_calib/extended_livox/catkin_ws:/home/sush/catkin_ws \
       -v /home/sush/klab2/camera_calib/extended_livox/input_bags:/home/sush/input_bags \
-      livox_built:latest
+      sushanthj/lidar_camera_extrinsics_cailb:latest
 else
 
     echo "NVIDIA GPU NOT detected, initialization calibration container"
@@ -25,5 +25,5 @@ else
        --volume="${PWD}:/share" \
        -v /home/sush/klab2/camera_calib/extended_livox/catkin_ws:/home/sush/catkin_ws \
        -v /home/sush/klab2/camera_calib/extended_livox/input_bags:/home/sush/input_bags \
-       ros:noetic-ros-core 
+       sushanthj/lidar_camera_extrinsics_cailb   latest
 fi
