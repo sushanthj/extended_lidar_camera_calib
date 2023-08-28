@@ -32,7 +32,7 @@ and modify it's contents with the correct paths
 
 step1: doing slam to accumulate dense pointcloud. 
 ```
-roslaunch floam floam_XXX.launch
+roslaunch floam floam_mapping.launch
 ```
 
 This floam_XXX is because there are a few options. If using a VLP16
@@ -46,7 +46,7 @@ I think the following should be done:
 
 step2: lidar camera calibration
 ```
-roslaunch livox_camera_calib calib_XXX.launch
+roslaunch livox_camera_calib calib.launch
 ```
 
 ## My Result
