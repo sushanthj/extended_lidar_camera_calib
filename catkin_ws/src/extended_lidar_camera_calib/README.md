@@ -32,7 +32,7 @@ Now, modify the contents of run_docker.sh with the correct paths
 
 If any dependencies are missing you can run the setup script inside the docker.
 
-# Step 1: SLAM to accumulate dense pointcloud 
+# Step 1: SLAM to accumulate dense pointcloud
 
 **Note:** If you are using a VLP16 LIDAR, please start the robot and move it slowly forward for around 10 metres and then backward to start position.
 This rosbag will be huge, but is required to accumulate a dense pointcloud.
@@ -52,6 +52,9 @@ I think the following should be done:
 6. The node does not exit on it's own. But just do CTRL-C and it should save the map smoothly
 
 # Step 2 : Lidar camera calibration
+
+**NOTE:** The intrinsics **must be** accurate. Even slightly inaccurate extrinsics should not
+affect the calibration.
 
 Setup:
 - Run the rosbag (at 0.05x rate) used for floam and open rqt_image_view. Save a frame (when the robot is static) from rqt as a .png in the ```extended_lidar_camera_calib/floam/PCD``` folder
