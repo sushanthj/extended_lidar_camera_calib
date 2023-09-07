@@ -4,7 +4,7 @@ import open3d as o3d
 
 def main():
     # Replace 'your_point_cloud.pcd' with the path to your PCD file
-    pcd_file = '/home/sush/klab2/camera_calib/extended_livox/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/trial.pcd'
+    pcd_file = '/home/sush/klab2/camera_calib/extended_livox/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/aug_17_1_sliced_2.pcd'
 
     # Load the PCD file using Open3D
     point_cloud = o3d.io.read_point_cloud(pcd_file)

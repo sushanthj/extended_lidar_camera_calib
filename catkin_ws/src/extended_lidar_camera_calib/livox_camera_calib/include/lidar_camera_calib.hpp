@@ -209,6 +209,17 @@ Calibration::Calibration(const std::string &image_file,
     exit(-1);
   }
 
+  auto filter_cloud  =
+      pcl::PointCloud<pcl::PointXYZI>::Ptr(new pcl::PointCloud<pcl::PointXYZI>);
+  for (int i = 0; i < raw_lidar_cloud_->points.size(); ++i) {
+    auto& point = raw_lidar_cloud_->points[i];
+    if (point.x < 0.0) {
+      continue;
+    }
+    filter_cloud->points.push_back(point);
+  }
+  raw_lidar_cloud_ = filter_cloud;
+
   Eigen::Vector3d lwh(50, 50, 30);
   Eigen::Vector3d origin(0, -25, -10);
   std::vector<VoxelGrid> voxel_list;

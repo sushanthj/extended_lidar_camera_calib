@@ -327,10 +327,10 @@ void callback(const PointCloud2::ConstPtr &laser_cloud) {
       center.x = centroid_candidates->at(groups[i][j]).x;
       center.y = centroid_candidates->at(groups[i][j]).y;
       center.z = centroid_candidates->at(groups[i][j]).z;
-      // std::cout << "For Group " << j << std::endl;
-      // std::cout << "Centroid X is " << center.x << std::endl;
-      // std::cout << "Centroid Y is " << center.y << std::endl;
-      // std::cout << "Centroid Z is " << center.z << std::endl;
+      std::cout << "For Group " << j << std::endl;
+      std::cout << "Centroid X is " << center.x << std::endl;
+      std::cout << "Centroid Y is " << center.y << std::endl;
+      std::cout << "Centroid Z is " << center.z << std::endl;
       candidates.push_back(center);
     }
 

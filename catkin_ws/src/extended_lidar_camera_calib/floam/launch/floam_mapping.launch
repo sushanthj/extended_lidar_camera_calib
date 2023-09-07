@@ -2,7 +2,7 @@
 <launch>
 
     
-    <node pkg="rosbag" type="play" name="rosbag_play" args="--clock -r 0.5 /home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/dataset/aug_17_1_sliced_2.bag"/> 
+    <node pkg="rosbag" type="play" name="rosbag_play" args="--clock -r 0.5 /home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/dataset/sep_5_2.bag"/> 
     
     <!-- For Velodyne VLP-16 -->
     <param name="scan_line" value="16" />

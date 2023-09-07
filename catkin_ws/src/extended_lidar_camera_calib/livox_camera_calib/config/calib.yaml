@@ -1,19 +1,31 @@
 # Data path. adjust them!
 common:
-    image_file: "/home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/aug_17_1.png"
-    pcd_file: "/home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/aug_17_1_sliced_2.pcd"
+    image_file: "/home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/sep_5_2.png"
+    pcd_file: "/home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/sep_5_2.pcd"
+    # image_file: "/home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/aug_17_1.png"
+    # pcd_file: "/home/sush/catkin_ws/src/extended_lidar_camera_calib/floam/PCD/aug_17_1_sliced_2.pcd"
     result_file: "/home/sush/catkin_ws/extrinsic.txt"
 
 # Camera Parameters. Adjust them!
 camera:
-    # camera_matrix: [1364.45, 0.0,      958.327,
-    #                 0.0,     1366.46,  535.074,
-    #                 0.0,     0.0,      1.0     ]
-    # dist_coeffs: [0.0958277, -0.198233, -0.000147133, -0.000430056, 0.000000]
-    camera_matrix: [778.36585, 0.0,         702.1301,
-                    0.0,       778.14272,   533.29078,
-                    0.0,       0.0,         1.0     ]
-    dist_coeffs: [-0.028278, 0.038808, 0.000716, -0.000385, 0.0]
+    # Pt_Grey
+    # camera_matrix: [778.36585, 0.0,         702.1301,
+    #                 0.0,       778.14272,   533.29078,
+    #                 0.0,       0.0,         1.0     ]
+    # dist_coeffs: [-0.028278, 0.038808, 0.000716, -0.000385, 0.0]
+
+    # Realsense (FROM ROS_INFO)
+    # camera_matrix: [642.0465087890625,  0.0,              656.24072265625,
+    #                 0.0,                641.32958984375,  364.64154052734375,
+    #                 0.0,                0.0,              1.0]
+    # dist_coeffs: [-0.058568429201841354, 0.07027624547481537, -0.0002667765074875206, 0.0009609074331820011, -0.02324339933693409]
+    # dist_coeffs: [0.0, 0.0, 0.0, 0.0, 0.0]
+
+    # Realsense (FROM REALSENSE-VIEWER)
+    camera_matrix: [653.317,  0.0,      645.998,
+                    0.0,      653.317,  360.754,
+                    0.0,      0.0,      1.0]
+    dist_coeffs: [0.0, 0.0, 0.0, 0.0, 0.0]
 
 # Calibration Parameters.!
 calib:

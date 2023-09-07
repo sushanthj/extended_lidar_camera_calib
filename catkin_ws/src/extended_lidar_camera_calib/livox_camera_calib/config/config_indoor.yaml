@@ -2,25 +2,52 @@
 
 # Topic name in rosbag
 PointCloudTopic: "/velodyne_points"
-ImageTopic: "/camera/image_color"
+# ImageTopic: "/camera/image_raw"
+ImageTopic: "/rs_right/camera/color/image_raw"
 
 # approximate extrinsics from CAD or Manual
 ExtrinsicMat: !!opencv-matrix
   rows: 4
   cols: 4
   dt: d
-  # Assuming rotation about y-axis and height height difference betwen lidar and cam along x axis
-  # and moving from L -> C
-  data: [ 0.898,    0.0,    0.438,    0.462,
-          0.0,      1.0,    0.0,      0.0,
-         -0.438,    0.0,    0.898,   -0.025,
-          0.0,      0.0,    0.0,      1.0]
-  # # Assuming rotation about y-axis and height height difference betwen lidar and cam along z axis
-  # # and moving from L -> C
-  # data: [ 0.898,    0.0,    0.438,    0.025,
-  #         0.0,      1.0,    0.0,      0.0,
-  #        -0.438,    0.0,    0.898,   -0.462,
-  #         0.0,      0.0,    0.0,      1.0]
+  # Trial
+  # data: [0.0,   -1.0,   0.0,    0.0425,
+  #        0.0,    0.0,  -1.0,    0.35,
+  #        1.0,   0.0,    0.0,    0.09,
+  #        0.0,   0.0,    0.0,    1.0]
+
+  # Lidar -> Pt_grey Camera frame (camera frame with z outward and lidar with x outward)
+  # data: [ 0,     -0.438,   0.898,   -0.025,
+  #        -1,      0.0,     0.0,      0.0,
+  #         0.0,   -0.898,  -0.438,    0.462,
+  #         0.0,    0.0,     0.0,      1.0]
+
+  # Inversion of Lidar -> Pt_grey Camera frame
+  # data: [ 0,     -1.0,     0.0,      0.0,
+  #        -0.438,  0.0,    -0.899,    0.4046,
+  #         0.899,  0.0,    -0.438,    0.2252,
+  #         0.0,    0.0,     0.0,      1.0]
+
+  # Inversion of Lidar -> Pt_grey Camera frame with Rotation
+  # data: [-0.0871,  -0.9964,    0.0,      -0.0021,
+  #        -0.4371,   0.0382,   -0.8995,    0.4046,
+  #         0.8963,  -0.0784,   -0.4387,    0.2251,
+  #         0.0,      0.0,       0.0,       1.0]
+
+  # Lidar -> RealSense (optical)
+  # data: [-0.08713,   -0.9963,     0.0,     -0.0083,
+  #         0.02594,   -0.0022,    -1.000,    0.3546,
+  #         0.99746,   -0.0872,     0.026,    0.1049,
+  #         0.0,        0.0,        0.0,      1.0]
+
+  # Lidar -> RealSense (optical with no lidar rotation)
+  data: [ 0.00000,   -1.0000,     0.0,      0.0425,
+          0.02600,    0.0000,    -0.999,    0.3542,
+          0.99972,    0.0000,     0.026,    0.0868,
+          0.0,        0.0,        0.0,      1.0]
+
+
+
 # Params for Canny Edge Extraction
 
 Canny.gray_threshold: 10
